@@ -15,8 +15,6 @@ const PlaceOrderScreen = ({ history }) => {
 
   if (!cart.originInfo.account) {
     history.push('/shipping')
-  } else if (!cart.paymentMethod) {
-    history.push('/payment')
   }
   //   Calculate prices
   const addDecimals = (num) => {
@@ -47,7 +45,6 @@ const PlaceOrderScreen = ({ history }) => {
       createOrder({
         orderItems: cart.cartItems,
         originInfo: cart.originInfo,
-        paymentMethod: cart.paymentMethod,
         itemsPrice: cart.itemsPrice,
         totalPrice: cart.totalPrice,
       })
@@ -67,13 +64,6 @@ const PlaceOrderScreen = ({ history }) => {
                 {cart.originInfo.account}
               </p>
             </ListGroup.Item>
-
-            <ListGroup.Item>
-              <h2>Payment Method</h2>
-              <strong2>Method: </strong2>
-              {cart.paymentMethod}
-            </ListGroup.Item>
-
             <ListGroup.Item>
               <h2>Order Items</h2>
               {cart.cartItems.length === 0 ? (
@@ -111,7 +101,7 @@ const PlaceOrderScreen = ({ history }) => {
           <Card>
             <ListGroup variant='flush'>
               <ListGroup.Item>
-                <h2>Order Summary</h2>
+                <h2>Summary</h2>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>

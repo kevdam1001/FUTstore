@@ -118,11 +118,7 @@ const OrderScreen = ({ match, history }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
-              <p>
-                <strong2>Method: </strong2>
-                {order.paymentMethod}
-              </p>
+              <h2>Payment</h2>
               {order.isPaid ? (
                 <Message variant='success'>Paid on {order.paidAt}</Message>
               ) : (
@@ -167,7 +163,7 @@ const OrderScreen = ({ match, history }) => {
           <Card>
             <ListGroup variant='flush'>
               <ListGroup.Item>
-                <h2>Order Summary</h2>
+                <h2>Summary</h2>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>

@@ -19,7 +19,7 @@ const OriginScreen = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(saveOriginInfo({ account, password, securityCode }))
-    history.push('/payment')
+    history.push('/placeOrder')
   }
 
   return (
