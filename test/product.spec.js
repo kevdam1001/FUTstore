@@ -4,7 +4,7 @@ import chaiHttp from 'chai-http'
 const expect = chai.expect;
 
 chai.use(chaiHttp)
-const url = 'http://localhost:5000'
+const url = 'http://EC2Co-EcsEl-PJTMJ8PS8AWM-1718674474.us-east-2.elb.amazonaws.com:5000'
 
 var id = ''
 
@@ -35,6 +35,16 @@ describe('PRODUCT TEST: ',()=>{
             done();
         });
         });
+
+    it('Should get list of products', (done) =>{
+        chai.request(url)
+        .get('/api/products?keyword=""&pageNumber=""')
+        .end(function(err,res){
+            expect(res).to.have.status(200);
+            done();
+    });
+    });
+
 
     it('Should create a product', (done) =>{
         chai.request(url)

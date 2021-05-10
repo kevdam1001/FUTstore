@@ -4,7 +4,7 @@ import chaiHttp from 'chai-http'
 const expect = chai.expect;
 
 chai.use(chaiHttp)
-const url = 'http://localhost:5000'
+const url = 'http://EC2Co-EcsEl-PJTMJ8PS8AWM-1718674474.us-east-2.elb.amazonaws.com:5000'
 
 const config = {
     headers: {
@@ -31,6 +31,16 @@ describe('USER TEST: ',()=>{
         token = res.body.token
         expect(res).to.have.status(200);
         done();
+    });
+    });
+
+    it('Should get all users', (done) =>{
+        chai.request(url)
+        .get('/api/users/')
+        .set('Authorization','Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwOTc1NTkyYjY2YzJlMTY4YmNkMjNiMiIsImlhdCI6MTYyMDUzNzIyMCwiZXhwIjoxNjIzMTI5MjIwfQ.IvBDslN1-DmvsVIsgc7YLlMviHya5tGV1ekbCzOnNw8')
+        .end(function(err,res){
+            expect(res).to.have.status(200);
+            done();
     });
     });
 

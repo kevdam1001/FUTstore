@@ -66,7 +66,7 @@ const ProductEditScreen = ({ match, history }) => {
         },
       }
 
-      const { data } = await axios.post('http://127.0.0.1:5000/api/upload', formData, config)
+      const { data } = await axios.post('http://EC2Co-EcsEl-PJTMJ8PS8AWM-1718674474.us-east-2.elb.amazonaws.com:5000/api/upload', formData, config)
 
       setImage(data)
       setUploading(false)
